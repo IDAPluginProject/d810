@@ -16,6 +16,7 @@ try:
     # Since version 4.8.2, when Z3 is creating a BitVec, it relies on _str_to_bytes which uses sys.stdout.encoding
     # However, in IDA Pro (7.6sp1) sys.stdout is an object of type IDAPythonStdOut
     # which doesn't have a 'encoding' attribute, thus we set it to something, so that Z3 works
+    import sys
     try:
         x = sys.stdout.encoding
     except AttributeError:
