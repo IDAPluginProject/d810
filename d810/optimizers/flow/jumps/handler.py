@@ -149,6 +149,9 @@ class JumpFixer(FlowOptimizationRule):
 
     def configure(self, kwargs):
         super().configure(kwargs)
+
+        self.rules.clear()
+
         if "enabled_rules" in self.config.keys():
             for rule in self.known_rules:
                 if rule.name in self.config["enabled_rules"]:
